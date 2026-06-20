@@ -157,11 +157,11 @@ export default function SimuladorMundial() {
           </div>
 
           <button 
-            onClick={simularPartido}
-            className="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-4 rounded-lg transition duration-200 mt-4"
-          >
-            Simular Partido
+          onClick={simularPartido}
+          className="w-full mt-6 py-3 px-4 bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-500 hover:to-indigo-500 text-white font-bold rounded-xl shadow-lg shadow-blue-500/40 hover:shadow-indigo-500/40 transform hover:-translate-y-1 active:translate-y-0 transition-all duration-200 tracking-wider">
+            ⚽ Simular Partido
           </button>
+          
         </div>
 
         {resultados && (
@@ -202,13 +202,17 @@ export default function SimuladorMundial() {
 
             <h2 className="text-lg font-bold text-gray-800 border-b pb-2 mb-4">Top 5 Marcadores</h2>
             <ul className="divide-y divide-gray-100">
-              {resultados.topScores.map((item, index) => (
-                <li key={index} className="py-2 flex justify-between text-gray-700">
-                  <span className="font-medium">{item.score}</span>
-                  <span>{(item.p * 100).toFixed(1)}%</span>
-                </li>
-              ))}
-            </ul>
+            {resultados.topScores.map((item, index) => (
+            <li key={index} className="py-3 flex justify-between items-center text-gray-700">
+            <span className="font-bold text-lg text-gray-800">
+              {item.score}
+              </span>
+            <span className="bg-blue-100 text-blue-800 py-1 px-3 rounded-full text-sm font-bold shadow-sm">
+        {(item.p * 100).toFixed(1)}%
+          </span>
+        </li>
+        ))}
+          </ul>
           </div>
         )}
       </div>
